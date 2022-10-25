@@ -63,7 +63,7 @@ if uploaded_file is not None:
         else: 
                 st.image(image, width=300)
         
-        img.save(buf, format="JPEG")
+        image.save(buf, format="JPEG")
         byte_im = buf.getvalue()
 
         st.download_button(label="Download Image",data=byte_im,file_name="imagename.png",mime="image/jpeg",)
