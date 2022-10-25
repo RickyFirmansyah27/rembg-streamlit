@@ -1,7 +1,7 @@
 from rembg import remove
 from PIL import Image
 from matplotlib import pyplot as plt
-import streamlit
+import streamlit as st
 
 def main():
     input = Image.open(file)
@@ -13,11 +13,11 @@ def main():
     
 if __name__=="__main__":
    
-    sidebar.subheader('Upload Image')
-    file = sidebar.file_uploader(label='Pilih Gambar', type=('jpg'))
+    st.sidebar.subheader('Upload Image')
+    file = st.sidebar.file_uploader(label='Pilih Gambar', type=('jpg'))
       
     if file is not None:
-        sidebar.write('File Uploaded')
+        st.sidebar.write('File Uploaded')
         try:
            main()
             
