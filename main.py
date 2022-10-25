@@ -6,7 +6,10 @@ import streamlit as st
 def main():
     st.header('Remove Background')
     output = remove(file)
-    plt.imshow(file)
+    tampil(file)
+
+def tampil(img):
+    plt.imshow(img)
     plt.show()
   
     
