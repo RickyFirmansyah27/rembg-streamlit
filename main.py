@@ -13,11 +13,11 @@ def main():
     
 if __name__=="__main__":
    
-    st.sidebar.subheader('Upload Image')
-    file = st.sidebar.file_uploader(label='Pilih Gambar', type=('jpg'))
+    sidebar.subheader('Upload Image')
+    file = sidebar.file_uploader(label='Pilih Gambar', type=('jpg'))
       
     if file is not None:
-        st.sidebar.write('File Uploaded')
+        sidebar.write('File Uploaded')
         try:
            main()
             
