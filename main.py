@@ -58,7 +58,7 @@ if uploaded_file is not None:
                 output.save('Hasil.jpg')
                 output.save(buf, format="JPEG")
                 byte_im = buf.getvalue()
-                st.download_button(label="Download Images", data=output.tobytes(), file_name='Hasil.jpg')
+                st.download_button(label="Download Images", data=byte_im, file_name='Hasil.jpg')
                 
          
         elif filter == 'Pencil Sketch':
