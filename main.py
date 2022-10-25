@@ -40,14 +40,14 @@ if uploaded_file is not None:
                 converted_img = np.array(image.convert('RGB'))
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
                 st.image(gray_scale, width=300)
-                image.save(buf, format="JPEG")
+                gray_scale.save(buf, format="JPEG")
         elif filter == 'Black and White':
                 converted_img = np.array(image.convert('RGB'))
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
                 slider = st.sidebar.slider('Adjust the intensity', 1, 255, 127, step=1)
                 (thresh, blackAndWhiteImage) = cv2.threshold(gray_scale, slider, 255, cv2.THRESH_BINARY)
                 st.image(blackAndWhiteImage, width=300)
-                image.save(buf, format="JPEG")
+                blackAndWhiteImage.save(buf, format="JPEG")
         elif filter == 'Pencil Sketch':
                 converted_img = np.array(image.convert('RGB')) 
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
@@ -56,14 +56,14 @@ if uploaded_file is not None:
                 blur_image = cv2.GaussianBlur(inv_gray, (slider,slider), 0, 0)
                 sketch = cv2.divide(gray_scale, 255 - blur_image, scale=256)
                 st.image(sketch, width=300) 
-                image.save(buf, format="JPEG")
+                sketch.save(buf, format="JPEG")
         elif filter == 'Blur Effect':
                 converted_img = np.array(image.convert('RGB'))
                 slider = st.sidebar.slider('Adjust the intensity', 5, 81, 33, step=2)
                 converted_img = cv2.cvtColor(converted_img, cv2.COLOR_RGB2BGR)
                 blur_image = cv2.GaussianBlur(converted_img, (slider,slider), 0, 0)
                 st.image(blur_image, channels='BGR', width=300) 
-                image.save(buf, format="JPEG")
+                blur_image.save(buf, format="JPEG")
         else: 
                 st.image(image, width=300)
         
