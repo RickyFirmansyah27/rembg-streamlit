@@ -54,9 +54,8 @@ if uploaded_file is not None:
                 input = Image.open(uploaded_file)
                 output = remove(input)
                 converted_img = np.array(output.convert('RGB'))
-               
                 st.image(output, width=300)
-                converted_img.save(buf, format="JPEG")
+                output.save(buf, format="JPEG")
                 byte_im = buf.getvalue()
                 btn = st.download_button(label="Download image",data=byte_im,file_name="hasil.png",mime="image/png")
                 
