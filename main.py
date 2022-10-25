@@ -59,5 +59,6 @@ if uploaded_file is not None:
                 st.image(blur_image, channels='BGR', width=300) 
         else: 
                 st.image(image, width=300)
-        btn = download_button(label="Download Image",data=byte_im,file_name="imagename.png",mime="image/jpeg",)
+        
+        download_button(label="Download Image",data=byte_im,file_name="imagename.png",mime="image/jpeg",)
 
