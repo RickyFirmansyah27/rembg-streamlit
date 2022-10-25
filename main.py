@@ -55,8 +55,9 @@ if uploaded_file is not None:
                 output = remove(input)
                 converted_img = np.array(output.convert('RGB'))
                 st.image(output, width=300)
-                with open(output) as file:
-                    btn = st.download_button(label="Download image",data=file,file_name="hasil.png",mime="image/png")
+                output.save(buf, format="JPEG")
+                byte_im = buf.getvalue()
+                btn = st.download_button(label="Download image",data=byte_im,file_name="hasil.png",mime="image/png")
                 
          
         elif filter == 'Pencil Sketch':
@@ -67,8 +68,7 @@ if uploaded_file is not None:
                 blur_image = cv2.GaussianBlur(inv_gray, (slider,slider), 0, 0)
                 sketch = cv2.divide(gray_scale, 255 - blur_image, scale=256)
                 st.image(sketch, width=300) 
-                image.save(buf, format="JPEG")
-                byte_im = buf.getvalue()
+                
         elif filter == 'Blur Effect':
                 converted_img = np.array(image.convert('RGB'))
                 slider = st.sidebar.slider('Adjust the intensity', 5, 81, 33, step=2)
