@@ -40,9 +40,7 @@ if uploaded_file is not None:
                 converted_img = np.array(image.convert('RGB'))
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
                 st.image(gray_scale, width=300)
-                im = Image.fromarray(gray_scale)
-                im.save("your_file.jpeg")
-                
+               
            
         elif filter == 'Black and White':
                 converted_img = np.array(image.convert('RGB'))
