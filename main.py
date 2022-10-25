@@ -56,8 +56,8 @@ if uploaded_file is not None:
                 converted_img = np.array(output.convert('RGB'))
                 st.image(output, width=300)
                 im_pil = Image.fromarray(converted_img)
-                im_pil.save('Hasil.jpeg')
-                st.download_button(label="Download Images", data=im_pil.tobytes(), file_name='Image.jpeg')
+                im_pil.save('Hasil.jpg')
+                st.download_button(label="Download Images", data=im_pil.tobytes(), file_name='Image.jpg')
                 
          
         elif filter == 'Pencil Sketch':
