@@ -48,9 +48,8 @@ if uploaded_file is not None:
                 (thresh, blackAndWhiteImage) = cv2.threshold(gray_scale, slider, 255, cv2.THRESH_BINARY)
                 st.image(blackAndWhiteImage, width=300)
         elif filter == 'Delete Background':
-                rembg = Image.open(image)
-                
-                st.image(rembg, width=300)
+                converted_img = np.array(image.convert('RGB'))
+                st.image(converted_img, width=300)
                 
          
         elif filter == 'Pencil Sketch':
