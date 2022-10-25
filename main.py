@@ -40,8 +40,9 @@ if uploaded_file is not None:
                 converted_img = np.array(image.convert('RGB'))
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
                 st.image(gray_scale, width=300)
-                image.save(buf, format="JPEG")
-                byte_im = buf.getvalue()
+                gray_scale = Image.fromarray(cropped_image.astype('uint8'), 'RGB')
+                img = Image.open(result)            
+
         elif filter == 'Black and White':
                 converted_img = np.array(image.convert('RGB'))
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
@@ -74,5 +75,5 @@ if uploaded_file is not None:
        
         
 
-        st.download_button(label="Download Image",data=byte_im,file_name="imagename.png",mime="image/jpeg",)
+        st.download_button(label="Download Image",data=img,file_name="imagename.png",mime="image/jpeg",)
 
