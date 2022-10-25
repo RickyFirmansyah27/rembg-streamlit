@@ -5,9 +5,8 @@ import streamlit as st
 
 def main():
     input = Image.open(file)
-    output_path = 'output.png'
     output = remove(input)
-    plt.imshow(output_path)
+    plt.imshow(output)
     plt.show()
   
     
