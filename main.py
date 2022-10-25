@@ -49,8 +49,12 @@ if uploaded_file is not None:
                 st.image(blackAndWhiteImage, width=300)
         elif filter == 'Delete Background':
                 converted_img = np.array(image.convert('RGB'))
-                remove(converted_img)
-                st.image(converted_img, width=300)
+                input_path = converted_img
+                output_path = 'hasil.png'
+                input = Image.open(uploaded_file)
+                output = remove(uploaded_file)
+                converted_img = np.array(output.convert('RGB'))
+                st.image(output, width=300)
                 
          
         elif filter == 'Pencil Sketch':
