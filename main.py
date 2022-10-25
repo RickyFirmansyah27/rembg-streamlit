@@ -43,8 +43,8 @@ if uploaded_file is not None:
     with col2:
         st.markdown('<p style="text-align: center;">After</p>',unsafe_allow_html=True)
         filter = st.sidebar.radio('Covert your photo to:', ['Original','Black and White', 'Pencil Sketch', 'Blur Effect']) #Add the filter in the sidebar
-        
-    with col2:
+ 
+with col2:
         st.markdown('<p style="text-align: center;">After</p>',unsafe_allow_html=True)
         filter = st.sidebar.radio('Covert your photo to:', ['Original','Gray Image','Black and White', 'Pencil Sketch', 'Blur Effect'])
         if filter == 'Gray Image':
@@ -73,6 +73,7 @@ if uploaded_file is not None:
                 st.image(blur_image, channels='BGR', width=300) 
         else: 
                 st.image(image, width=300)
+
 
    
    
