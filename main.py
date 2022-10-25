@@ -49,6 +49,7 @@ if uploaded_file is not None:
                 st.image(blackAndWhiteImage, width=300)
         elif filter == 'Delete Background':
                 converted_img = np.array(image.convert('RGB'))
+                remove(converted_img)
                 st.image(converted_img, width=300)
                 
          
