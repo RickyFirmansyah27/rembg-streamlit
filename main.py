@@ -4,8 +4,7 @@ from matplotlib import pyplot as plt
 import streamlit as st
 
 def main():
-    input = Image.open(file)
-    output = remove(input)
+    output = remove(file)
     plt.imshow(output)
     plt.show()
   
