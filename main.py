@@ -49,7 +49,7 @@ if uploaded_file is not None:
                 st.image(blackAndWhiteImage, width=300)
         elif filter == 'Delete Background':
                 rembg = Image.open(image)
-                remove(rembg)
+                
                 st.image(rembg, width=300)
                 
          
