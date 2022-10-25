@@ -59,6 +59,7 @@ if uploaded_file is not None:
                 st.image(blur_image, channels='BGR', width=300) 
         else: 
                 st.image(image, width=300)
-
-st.download_button('Download file', image)  # Defaults to 'application/octet-stream'
+                
+binary_contents = image
+st.download_button('Download file', binary_contents)  # Defaults to 'application/octet-stream'
 
