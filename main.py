@@ -6,6 +6,7 @@ import streamlit as st
 def tampil(img):
     plt.imshow(img)
     plt.show()
+    st.plt.show()
   
     
 if __name__=="__main__":
