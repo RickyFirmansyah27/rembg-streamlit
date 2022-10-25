@@ -32,7 +32,7 @@ if uploaded_file is not None:
     col1, col2 = st.columns( [0.5, 0.5])
     with col1:
         st.markdown('<p style="text-align: center;">Before</p>',unsafe_allow_html=True)
-        st.image(image,width=300)  
+        st.image(image,width=1080)  
 
     with col2:     
         st.markdown('<p style="text-align: center;">After</p>',unsafe_allow_html=True)
@@ -54,7 +54,7 @@ if uploaded_file is not None:
                 input = Image.open(uploaded_file)
                 output = remove(input)
                 converted_img = np.array(output.convert('RGB'))
-                st.image(output, width=auto)
+                st.image(output, width=1080)
                 
          
         elif filter == 'Pencil Sketch':
