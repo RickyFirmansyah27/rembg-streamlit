@@ -1,5 +1,5 @@
 from rembg import remove
-from PIL import image
+from PIL import Image
 from matplotlib import pyplot as plt
 import streamlit
 
