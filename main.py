@@ -3,6 +3,7 @@
 import streamlit as st
 import numpy as np
 import cv2
+from rembg import remove
 from  PIL import Image, ImageEnhance
 
 from io import BytesIO
@@ -40,16 +41,19 @@ if uploaded_file is not None:
                 converted_img = np.array(image.convert('RGB'))
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
                 st.image(gray_scale, width=300)
-               
-           
         elif filter == 'Black and White':
                 converted_img = np.array(image.convert('RGB'))
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
                 slider = st.sidebar.slider('Adjust the intensity', 1, 255, 127, step=1)
                 (thresh, blackAndWhiteImage) = cv2.threshold(gray_scale, slider, 255, cv2.THRESH_BINARY)
                 st.image(blackAndWhiteImage, width=300)
-                image.save(buf, format="JPEG")
-                byte_im = buf.getvalue()
+        elif filter == 'Delete Background':
+                converted_img = np.array(image.convert('RGB'))
+                rembg = Image.open(converted_img)
+                remove(rembg)
+                st.image(rembg, width=300)
+                
+         
         elif filter == 'Pencil Sketch':
                 converted_img = np.array(image.convert('RGB')) 
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
