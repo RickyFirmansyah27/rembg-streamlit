@@ -30,12 +30,7 @@ if uploaded_file is not None:
         st.markdown('<p style="text-align: center;">Before</p>',unsafe_allow_html=True)
         st.image(image,width=300)  
 
-    with col2:
-        st.markdown('<p style="text-align: center;">After</p>',unsafe_allow_html=True)
-        filter = st.sidebar.radio('Covert your photo to:', ['Original','Black and White', 'Pencil Sketch', 'Blur Effect']) #Add the filter in the 
-        
-#Add conditional statements to take the user input values
-with col2:
+    with col2:     
         st.markdown('<p style="text-align: center;">After</p>',unsafe_allow_html=True)
         filter = st.sidebar.radio('Covert your photo to:', ['Original','Gray Image','Black and White', 'Pencil Sketch', 'Blur Effect'])
         if filter == 'Gray Image':
