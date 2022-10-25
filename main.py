@@ -5,6 +5,11 @@ import numpy as np
 import cv2
 from  PIL import Image, ImageEnhance
 
+from io import BytesIO
+buf = BytesIO()
+img.save(buf, format="JPEG")
+byte_im = buf.getvalue()
+
 #Create two columns with different width
 col1, col2 = st.columns( [0.8, 0.2])
 with col1:               # To display the header text using css style
