@@ -40,9 +40,11 @@ if uploaded_file is not None:
                 converted_img = np.array(image.convert('RGB'))
                 gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
                 st.image(gray_scale, width=300)
-                result = Image.fromarray(gray_scale.astype('uint8'), 'RGB')
-                img = Image.open(result)        
-                st.download_button(label="Download Image",data=gray_scale,file_name="imagename.png",mime="image/jpeg",)
+                grey = np.zeros(gray_scale.shape, dtype=np.uint8)
+                
+                grey.save(buf, format="JPEG")
+                byte_im = buf.getvalue()
+                st.download_button(label="Download Image",data=byte_im,file_name="imagename.png",mime="image/jpeg",)
 
         elif filter == 'Black and White':
                 converted_img = np.array(image.convert('RGB'))
