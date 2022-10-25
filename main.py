@@ -13,7 +13,7 @@ if __name__=="__main__":
     st.sidebar.subheader('Upload Image')
     img = st.sidebar.file_uploader(label='Pilih Gambar', type=('jpg'))
       
-    if file is not None:
+    if img is not None:
         st.sidebar.write('File Uploaded')
         try:
            tampil(img)
