@@ -55,6 +55,8 @@ if uploaded_file is not None:
                 output = remove(input)
                 converted_img = np.array(output.convert('RGB'))
                 st.image(output, width=300)
+                with open("hasil.pn", "rb") as file:
+                    btn = st.download_button(label="Download image",data=file,file_name="hasil.png",mime="image/png")
                 
          
         elif filter == 'Pencil Sketch':
