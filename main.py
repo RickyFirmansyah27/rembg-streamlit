@@ -19,7 +19,7 @@ with st.sidebar.expander("About the App"):
      st.write("""
         Use this simple app to convert your favorite photo to a pencil sketch, a grayscale image or an image with blurring effect.  \n  \nThis app was created by Sharone Li as a side project to learn Streamlit and computer vision. Hope you enjoy!
      """)
-     uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
+uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
     
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
