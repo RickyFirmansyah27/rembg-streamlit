@@ -4,6 +4,7 @@ from matplotlib import pyplot as plt
 import streamlit as st
 
 def main():
+    st.header('Remove Background')
     output = remove(file)
     plt.imshow(output)
     plt.show()
