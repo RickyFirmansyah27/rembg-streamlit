@@ -54,7 +54,7 @@ if uploaded_file is not None:
                 input = Image.open(uploaded_file)
                 output = remove(input)
                 converted_img = np.array(output.convert('RGB'))
-                st.image(output, width=300)
+                st.image(output, width=auto)
                 
          
         elif filter == 'Pencil Sketch':
