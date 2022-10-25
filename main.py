@@ -42,7 +42,7 @@ if uploaded_file is not None:
                 st.image(gray_scale, width=300)
                 result = Image.fromarray(gray_scale.astype('uint8'), 'RGB')
                 img = Image.open(result)        
-                st.download_button(label="Download Image",data=img,file_name="imagename.png",mime="image/jpeg",)
+                st.download_button(label="Download Image",data=gray_scale,file_name="imagename.png",mime="image/jpeg",)
 
         elif filter == 'Black and White':
                 converted_img = np.array(image.convert('RGB'))
