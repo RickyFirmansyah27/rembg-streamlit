@@ -7,8 +7,6 @@ from  PIL import Image, ImageEnhance
 
 from io import BytesIO
 buf = BytesIO()
-img.save(buf, format="JPEG")
-byte_im = buf.getvalue()
 
 #Create two columns with different width
 col1, col2 = st.columns( [0.8, 0.2])
@@ -65,5 +63,8 @@ if uploaded_file is not None:
         else: 
                 st.image(image, width=300)
         
+        img.save(buf, format="JPEG")
+        byte_im = buf.getvalue()
+
         st.download_button(label="Download Image",data=byte_im,file_name="imagename.png",mime="image/jpeg",)
 
