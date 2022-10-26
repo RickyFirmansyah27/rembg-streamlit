@@ -86,8 +86,8 @@ if uploaded_file is not None:
                 
         elif filter == 'Blue Background':
                 converted_img = np.array(image.convert('RGB'))
-               
-                converted_img.save(buf, format="PNG")
+                output = input(converted_img)
+                output.save(buf, format="PNG")
                 byte_im = buf.getvalue()
                 file_name ='Hasil.png'
                 Image = cv.imread("Hasil.png", cv.IMREAD_UNCHANGED)
