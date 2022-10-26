@@ -84,7 +84,7 @@ if uploaded_file is not None:
                 
         elif filter == 'Blue Background':
                 size = (w, h, channels) = (100, 100, 1)
-                img = np.zeros(size, np.uint8)
+                img = np.zeros(size, dtype=np.uint8)
                 for y in range(300):
                     for x in range(400):
                         img[y,x,0]=0
