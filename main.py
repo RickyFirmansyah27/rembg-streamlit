@@ -1,5 +1,5 @@
-
 #Import libraries
+from matplotlib import pyplot as plt
 import streamlit as st
 import numpy as np
 import cv2
@@ -83,7 +83,7 @@ if uploaded_file is not None:
                 byte_im = buf.getvalue()
                 
         elif filter == 'Blue Background':
-                img = uploaded_file.copy()
+                img = plt.imread(image)
                 for y in range(300):
                     for x in range(400):
                         img[y,x,0]=0
