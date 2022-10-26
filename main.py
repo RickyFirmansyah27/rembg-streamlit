@@ -86,7 +86,7 @@ if uploaded_file is not None:
                 
         elif filter == 'Blue Background':
                 input = Image.open(uploaded_file)
-                output = intput('hasil.png')
+                output = input('hasil.png')
                 BlueBg = cv2.imread("hasil.png", cv2.IMREAD_UNCHANGED)
                 #BlueBg = np.array(input.convert('RGB'))
                 trasn_mask = BlueBg[:,:,3]==0
