@@ -83,18 +83,18 @@ if uploaded_file is not None:
                 byte_im = buf.getvalue()
                 
         elif filter == 'Blue Background':
-                img = uploaded_file
-                color ='blue'
-                response:requests.post(
-                    'https://api.remove.bg/v1.0/removebg',
-                    files={'image_file': open(img, 'rb')},
-                    data={'size':'auto','bg_color':blue},
-                    headers={'X-Api-Key': api_bg})
-                if response.status_code == requests.codes.ok:
-                    st.image(img, width=300)
-                else:
-                    paarint("Error:", response.status_code, response.text)
-                
+                img = np.zeros(image.shape, dtype=np.uint8)
+                for y in range(300):
+                    for x in range(400):
+                        img[y,x,0]=0
+                        img[y,x,1]=0
+                        img[y,x,2]=img[y,x,2]
+                converted_img = np.array(img.convert('RGB'))
+                st.image(converted_img, width=300)
+               
+                converted_img.save(buf, format="PNG")
+                byte_im = buf.getvalue()
+                st.download_button(label="Download Images", data=byte_im, file_name='Hasil.png')
                 
                 
         else: 
