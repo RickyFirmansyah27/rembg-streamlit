@@ -86,11 +86,16 @@ if uploaded_file is not None:
                 
         elif filter == 'Blue Background':
                 converted_img = np.array(image.convert('RGB'))
-                trasn_mask = converted_img[:,:,3]==0
-                converted_img[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
-                st.write(converted_img.shape)
-                resized = cv2.resize(converted_img, None, fx=0.5, fy=0.5)
-                st.image(converted_img, width=300)
+               
+                converted_img.save(buf, format="PNG")
+                byte_im = buf.getvalue()
+                file_name ='Hasil.png'
+                Image = cv.imread("Hasil.png", cv.IMREAD_UNCHANGED)
+                trasn_mask = Image[:,:,3]==0
+                Image[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
+                st.write(Image.shape)
+                st.image(Image, width=300)
+                
                 
                 
         else: 
