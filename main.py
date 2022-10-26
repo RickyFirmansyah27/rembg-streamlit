@@ -83,7 +83,7 @@ if uploaded_file is not None:
                 byte_im = buf.getvalue()
                 
         elif filter == 'Blue Background':
-                img = np.zeros(uploaded_file.shape, dtype=np.uint8)
+                img = uploaded_file.copy()
                 for y in range(300):
                     for x in range(400):
                         img[y,x,0]=0
