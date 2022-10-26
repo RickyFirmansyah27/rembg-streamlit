@@ -85,8 +85,8 @@ if uploaded_file is not None:
         elif filter == 'Blue Background':
                 
                 
-                i = Image.open(uploaded_file)
-                width, height = i.size
+                input = Image.open(uploaded_file)
+                size =(w,h, chanels) = (150,100,1)
                 
                 img = np.zeros(i.shape, dtype=np.uint8)
                 output = remove(input)
