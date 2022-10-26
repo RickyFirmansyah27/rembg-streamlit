@@ -87,9 +87,8 @@ if uploaded_file is not None:
                 img = np.zeros(size, dtype=np.uint8)
                 for y in range(300):
                     for x in range(400):
-                        img[y,x,0]=0
-                        img[y,x,1]=0
-                        img[y,x,2]=img[y,x,2]
+                        avg = (int(img[y,x,0])+int(img[y,x,1])+int(img[y,x,2])/3)
+                        img[y,x] = int(avg) * 0
                 converted_img = np.array(img.convert('RGB'))
                 st.image(converted_img, width=300)
                
