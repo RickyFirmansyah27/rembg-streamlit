@@ -87,7 +87,7 @@ if uploaded_file is not None:
         elif filter == 'Blue Background':
                 input = Image.open(uploaded_file)
                 BlueBg = np.array(input.convert('RGB'))
-                trasn_mask = BlueBg[:,:,3 ]==0
+                trasn_mask = BlueBg[:,:,3]==0
                 BlueBg[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
                 BlueBg = np.array(BGimg.convert('RGB'))
                 st.image(output, width=300)
