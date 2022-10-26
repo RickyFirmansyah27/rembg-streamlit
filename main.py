@@ -85,11 +85,15 @@ if uploaded_file is not None:
         elif filter == 'Blue Background':
                 size = (w, h, channels) = (100, 100, 1)
                 img = np.zeros(size, dtype=np.uint8)
-                converted_img = np.array(image.convert('RGB')) 
                 
-                st.image(img, width=300)
+                
                
-                img.save(buf, format="PNG")
+                input = Image.open(img)
+                output = input
+                converted_img = np.array(output.convert('RGB'))
+                st.image(output, width=300)
+               
+                output.save(buf, format="PNG")
                 byte_im = buf.getvalue()
                 st.download_button(label="Download Images", data=byte_im, file_name='Hasil.png')
                 
