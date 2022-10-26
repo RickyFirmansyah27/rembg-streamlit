@@ -90,10 +90,10 @@ if uploaded_file is not None:
                     files={'image_file': open(img, 'rb')},
                     data={'size':'auto','bg_color':blue},
                     headers={'X-Api-Key': api_bg})
-                    if response.status_code == requests.codes.ok:
-                       st.image(img, width=300)
-                    else:
-                        paarint("Error:", response.status_code, response.text)
+                if response.status_code == requests.codes.ok:
+                    st.image(img, width=300)
+                else:
+                    paarint("Error:", response.status_code, response.text)
                 
                 
                 
