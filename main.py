@@ -89,7 +89,7 @@ if uploaded_file is not None:
                     'https://api.remove.bg/v1.0/removebg',
                     files={'image_file': open(img, 'rb')},
                     data={'size':'auto','bg_color':color},
-                    headers={'X-Api-Key': api_bg'},)
+                    headers={'X-Api-Key': api_bg'})
                     if response.status_code == requests.codes.ok:
                        st.image(img, width=300)
                     else:
