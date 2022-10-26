@@ -82,19 +82,12 @@ if uploaded_file is not None:
                 image.save(buf, format="JPEG")
                 byte_im = buf.getvalue()
                 
-        elif filter == 'Blue Background':
+        ##elif filter == 'Blue Background':
                 
                 
-                input = Image.open(uploaded_file)
-                width, height = input.size
-                size =(w,h, channels) = (width,height,1)
-                
-                img = np.zeros(input.size, dtype=np.uint8)
-                output = remove(input)
-                converted_img = np.array(output.convert('RGB'))
-                fuse = np.concatenate((converted_img,img)), axis=0)
-                st.image(fuse, width = 300)
                
+              
+              
                
                
                 
