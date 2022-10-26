@@ -87,7 +87,11 @@ if uploaded_file is not None:
                 size = (w, h, channels) = (150, 100, 1)
                 img = np.zeros(size, dtype=np.uint8)
                 
-                
+                input = Image.open(uploaded_file)
+                output = remove(input)
+                converted_img = np.array(output.convert('RGB'))
+                fuse = converted_img + img
+                st.image(fuse, width = 300)
                
                
                 st.image(img, width=300)
