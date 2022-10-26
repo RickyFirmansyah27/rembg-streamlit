@@ -88,7 +88,9 @@ if uploaded_file is not None:
                 converted_img = np.array(image.convert('RGB'))
                 trasn_mask = converted_img[:,:,3]==0
                 converted_img[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
+                st.write(converted_img.shape)
                 st.image(converted_img, width=300)
+                
                 
         else: 
                 st.image(image, width=300)
