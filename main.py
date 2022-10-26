@@ -8,6 +8,11 @@ from  PIL import Image, ImageEnhance
 
 from io import BytesIO
 buf = BytesIO()
+# variable 
+RED =255
+GREEN =255
+BLUE =255
+ALPHA = 200
 
 #Create two columns with different width
 col1, col2 = st.columns( [0.8, 0.2])
@@ -78,10 +83,27 @@ if uploaded_file is not None:
                 st.image(blur_image, channels='BGR', width=300) 
                 image.save(buf, format="JPEG")
                 byte_im = buf.getvalue()
+                
+        elif filter == 'Blue Background':
+                ##converted_img = np.array(image.convert('RGB'))
+                BGimg = cv.imread(image, cv.IMREAD_UNCHANGED)
+                trasn_mask = BGimg[:,:,3 ]==0
+                BGimg[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
+                output = np.array(BGimg.convert('RGB'))
+                st.image(output, width=300)
+                output.save(buf, format="PNG")
+                byte_im = buf.getvalue()
+                st.download_button(label="Download Images", data=byte_im, file_name='Hasil.png')
+                
         else: 
                 st.image(image, width=300)
-        
+     
+
        
+
+
+
+
         
 
         
