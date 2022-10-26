@@ -92,7 +92,7 @@ if uploaded_file is not None:
                 img = np.zeros(size, dtype=np.uint8)
                 output = remove(input)
                 converted_img = np.array(output.convert('RGB'))
-                fuse = np.concatenate((img, converted_img), axis=0)
+                fuse = np.column_stack((converted_img,img)), axis=0)
                 st.image(fuse, width = 300)
                
                
