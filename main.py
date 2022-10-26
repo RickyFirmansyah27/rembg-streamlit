@@ -88,7 +88,7 @@ if uploaded_file is not None:
                 input = Image.open(uploaded_file)
                 size =(w,h, channels) = (150,100,1)
                 
-                img = np.zeros(i.shape, dtype=np.uint8)
+                img = np.zeros(input.shape, dtype=np.uint8)
                 output = remove(input)
                 converted_img = np.array(output.convert('RGB'))
                 fuse = np.concatenate((img, converted_img), axis=0)
