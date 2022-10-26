@@ -85,11 +85,11 @@ if uploaded_file is not None:
                 byte_im = buf.getvalue()
                 
         elif filter == 'Blue Background':
-                ##converted_img = np.array(image.convert('RGB'))
-                BGimg = cv2.imread(image, cv2.IMREAD_UNCHANGED)
-                trasn_mask = BGimg[:,:,3 ]==0
-                BGimg[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
-                output = np.array(BGimg.convert('RGB'))
+                input = Image.open(uploaded_file)
+                BlueBg = np.array(input.convert('RGB'))
+                trasn_mask = BlueBg[:,:,3 ]==0
+                BlueBg[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
+                BlueBg = np.array(BGimg.convert('RGB'))
                 st.image(output, width=300)
                 output.save(buf, format="PNG")
                 byte_im = buf.getvalue()
