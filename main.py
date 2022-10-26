@@ -90,7 +90,7 @@ if uploaded_file is not None:
                 output.save(buf, format="PNG")
                 byte_im = buf.getvalue()
                 file_name ='Hasil.png'
-                Image = cv.imread("Hasil.png", cv.IMREAD_UNCHANGED)
+                Image = cv2.imread(file_name, cv2.IMREAD_UNCHANGED)
                 trasn_mask = Image[:,:,3]==0
                 Image[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
                 st.write(Image.shape)
