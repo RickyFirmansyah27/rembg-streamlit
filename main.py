@@ -3,16 +3,14 @@
 import streamlit as st
 import numpy as np
 import cv2
+import requests
 from rembg import remove
 from  PIL import Image, ImageEnhance
 
 from io import BytesIO
 buf = BytesIO()
 # variable 
-RED =0
-GREEN =0
-BLUE =255
-ALPHA = 200
+api_bg = 'd1vacqoLMYcX6NjtSnvr5mbm'
 
 #Create two columns with different width
 col1, col2 = st.columns( [0.8, 0.2])
@@ -85,15 +83,17 @@ if uploaded_file is not None:
                 byte_im = buf.getvalue()
                 
         elif filter == 'Blue Background':
-                input = Image.open(uploaded_file)
-                output = remove(input)
-                converted_img = np.array(output.convert('RGB'))
-                
-               
-                trasn_mask = converted_img[:,:,3]==0
-                converted_img[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
-                st.write(converted_img.shape)
-                st.image(Image, width=300)
+                img = uploaded_file
+                color ='blue'
+                response:requests.post(
+                    'https://api.remove.bg/v1.0/removebg',
+                    files={'image_file': open(img, 'rb')},
+                    data={'size': 'bg_color':color},
+                    headers={'X-Api-Key': api_bg'},)
+                    if response.status_code == requests.codes.ok:
+                       st.image(img, width=300)
+                    else:
+                        paarint("Error:", response.status_code, response.text)
                 
                 
                 
