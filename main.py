@@ -86,7 +86,7 @@ if uploaded_file is not None:
                 
         elif filter == 'Blue Background':
                 ##converted_img = np.array(image.convert('RGB'))
-                BGimg = cv.imread(image, cv.IMREAD_UNCHANGED)
+                BGimg = cv2.imread(image, cv2.IMREAD_UNCHANGED)
                 trasn_mask = BGimg[:,:,3 ]==0
                 BGimg[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
                 output = np.array(BGimg.convert('RGB'))
