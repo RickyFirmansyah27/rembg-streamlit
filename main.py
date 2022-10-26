@@ -83,11 +83,12 @@ if uploaded_file is not None:
                 byte_im = buf.getvalue()
                 
         elif filter == 'Blue Background':
-                converted_img = np.array(image.convert('RGB')) 
-                size = (w, h, channels) = (150, 100, 1)
-                img = np.zeros(size, dtype=np.uint8)
                 
-                input = Image.open(uploaded_file)
+                
+                i = Image.open(uploaded_file)
+                width, height = i.size
+                
+                img = np.zeros(i.size, dtype=np.uint8)
                 output = remove(input)
                 converted_img = np.array(output.convert('RGB'))
                 fuse = np.concatenate((img, converted_img), axis=0)
