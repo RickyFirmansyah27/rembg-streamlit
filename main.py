@@ -86,7 +86,8 @@ if uploaded_file is not None:
                 
                 
                 input = Image.open(uploaded_file)
-                size =(w,h, channels) = (150,100,1)
+                width, height = input.size
+                size =(w,h, channels) = (width,height,1)
                 
                 img = np.zeros(input.shape, dtype=np.uint8)
                 output = remove(input)
@@ -95,7 +96,6 @@ if uploaded_file is not None:
                 st.image(fuse, width = 300)
                
                
-                st.image(img, width=300)
                
                 
                 
