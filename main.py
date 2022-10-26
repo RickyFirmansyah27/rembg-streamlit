@@ -88,14 +88,10 @@ if uploaded_file is not None:
                 
                 
                
-                input = Image.open(img)
-                output = input
-                converted_img = np.array(output.convert('RGB'))
-                st.image(output, width=300)
                
-                output.save(buf, format="PNG")
-                byte_im = buf.getvalue()
-                st.download_button(label="Download Images", data=byte_im, file_name='Hasil.png')
+                st.image(img, width=300)
+               
+                
                 
                 
         else: 
