@@ -84,7 +84,7 @@ if uploaded_file is not None:
                 
         elif filter == 'Blue Background':
                 converted_img = np.array(image.convert('RGB')) 
-                size = (w, h, channels) = (300, 100, 1)
+                size = (w, h, channels) = (200, 100, 1)
                 img = np.zeros(size, dtype=np.uint8)
                 
                 
