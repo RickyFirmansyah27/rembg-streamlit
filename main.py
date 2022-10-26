@@ -85,10 +85,7 @@ if uploaded_file is not None:
         elif filter == 'Blue Background':
                 size = (w, h, channels) = (100, 100, 1)
                 img = np.zeros(size, dtype=np.uint8)
-                for y in range(300):
-                    for x in range(400):
-                        avg = (int(img[y,x,0])+int(img[y,x,1])+int(img[y,x,2])/3)
-                        img[y,x] = int(avg) * 0
+                
                 converted_img = np.array(img.convert('RGB'))
                 st.image(converted_img, width=300)
                
