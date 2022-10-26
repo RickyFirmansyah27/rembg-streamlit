@@ -85,17 +85,10 @@ if uploaded_file is not None:
                 byte_im = buf.getvalue()
                 
         elif filter == 'Blue Background':
-                input = Image.open(uploaded_file)
-                output = input('hasil.png')
-                BlueBg = cv2.imread("hasil.png", cv2.IMREAD_UNCHANGED)
-                #BlueBg = np.array(input.convert('RGB'))
-                trasn_mask = BlueBg[:,:,3]==0
-                BlueBg[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
-                BlueBg = np.array(BGimg.convert('RGB'))
-                st.image(BlueBg, width=300)
-                output.save(buf, format="PNG")
-                byte_im = buf.getvalue()
-                st.download_button(label="Download Images", data=byte_im, file_name='Hasil.png')
+                converted_img = np.array(image.convert('RGB'))
+                trasn_mask = converted_img[:,:,3]==0
+                converted_img[trasn_mask]=[BLUE, GREEN, RED, ALPHA]
+                st.image(converted_img, width=300)
                 
         else: 
                 st.image(image, width=300)
