@@ -9,8 +9,8 @@ from  PIL import Image, ImageEnhance
 from io import BytesIO
 buf = BytesIO()
 # variable 
-RED =255
-GREEN =255
+RED =0
+GREEN =0
 BLUE =255
 ALPHA = 200
 
