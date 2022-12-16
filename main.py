@@ -21,8 +21,8 @@ def BGbred():
     os.rename(old_name, new_name)
     image = Image.open('rm.jpg')
     output = remove_background(image, color='red')
-    plt.imshow(output)
-    plt.show()
+    st.image(image)
+  
   
     
 if __name__=="__main__":
