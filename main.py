@@ -82,7 +82,18 @@ if uploaded_file is not None:
                 image.save(buf, format="JPEG")
                 byte_im = buf.getvalue()
                 
-        ##elif filter == 'Blue Background':
+        elif filter == 'Blue Background':
+                converted_img = np.array(image.convert('RGB'))
+                input_path = converted_img
+                output_path = 'hasil.png'
+                input = Image.open(uploaded_file)
+                output = rembg.remove_background(input, color='blue')
+                converted_img = np.array(output.convert('RGB'))
+                st.image(output, width=300)
+               
+                output.save(buf, format="PNG")
+                byte_im = buf.getvalue()
+                st.download_button(label="Download Images", data=byte_im, file_name='Hasil.png')
                 
                 
                
