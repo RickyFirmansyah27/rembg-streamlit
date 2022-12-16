@@ -4,7 +4,7 @@ import streamlit as st
 import numpy as np
 import cv2
 import requests
-from rembg import remove
+from rembg import remove as rmv
 from  PIL import Image, ImageEnhance
 
 from io import BytesIO
