@@ -4,7 +4,7 @@ import streamlit as st
 import numpy as np
 import cv2
 import requests
-from rembg import remove as rmv
+from rembg import remove, remove_background
 from  PIL import Image, ImageEnhance
 
 from io import BytesIO
@@ -87,20 +87,14 @@ if uploaded_file is not None:
                 input_path = converted_img
                 output_path = 'hasil.png'
                 input = Image.open(uploaded_file)
-                output = rmv(input, color='blue')
+                output = remove_background(input, color='blue')
                 converted_img = np.array(output.convert('RGB'))
                 st.image(output, width=300)
-               
                 output.save(buf, format="PNG")
                 byte_im = buf.getvalue()
                 st.download_button(label="Download Images", data=byte_im, file_name='Hasil.png')
                 
-                
-               
-              
-              
-               
-               
+        
                 
                 
                 
