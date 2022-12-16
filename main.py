@@ -33,8 +33,9 @@ if __name__=="__main__":
     if file is not None:
         st.sidebar.write('File Uploaded')
         try:
+           st.write('Program API REMBG')
            remBG()
-           BGbred():
+           BGbred()
             
         except Exception as e:
             print(e)
