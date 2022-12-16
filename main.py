@@ -88,6 +88,7 @@ if uploaded_file is not None:
                 output_path = 'hasil.png'
                 input = Image.open(uploaded_file)
                 output = remove_background(input, color='blue')
+                
                 converted_img = np.array(output.convert('RGB'))
                 st.image(output, width=300)
                 output.save(buf, format="PNG")
