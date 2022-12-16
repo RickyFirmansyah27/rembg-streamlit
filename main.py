@@ -1,4 +1,4 @@
-import rembg as rm
+from rmbg import remove
 from PIL import Image
 from matplotlib import pyplot as plt
 import streamlit as st
@@ -8,7 +8,7 @@ import os
 
 def BGbred():
     image = Image.open(file)
-    output = rm.remove(image)
+    output = remove(image,'red')
     st.image(image)
   
   
