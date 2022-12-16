@@ -7,7 +7,7 @@ import os
 
 
 def BGbred():
-    output = rm.remove(file.name)
+    output = rm.remove(file)
     st.image(image)
   
   
