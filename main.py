@@ -2,6 +2,7 @@ from rembg import remove
 from PIL import Image
 from matplotlib import pyplot as plt
 import streamlit as st
+import os
 
 def remBG():
     output = remove(file)
@@ -15,8 +16,11 @@ def BGblue():
     plt.show()
 
 def BGbred():
-    
-    output = remove_background(file, color='red')
+    old_name = file.name
+    new_name = "rm.jpg"
+    os.rename(old_name, new_name)
+    image = Image.open('rm.jpg')
+    output = remove_background(image, color='red')
     plt.imshow(output)
     plt.show()
   
@@ -30,6 +34,7 @@ if __name__=="__main__":
         st.sidebar.write('File Uploaded')
         try:
            remBG()
+           BGbred():
             
         except Exception as e:
             print(e)
