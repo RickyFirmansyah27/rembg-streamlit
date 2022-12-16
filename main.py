@@ -7,11 +7,7 @@ import os
 
 
 def BGbred():
-    old_name = file.name
-    new_name = "rm.jpg"
-    os.rename(old_name, new_name)
-    image = Image.open('rm.jpg')
-    output = remove_background(image, color='red')
+    output = remove_background(file.name, color='red')
     st.image(image)
   
   
