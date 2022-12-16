@@ -7,7 +7,7 @@ import os
 
 
 def BGbred():
-    output = remove_background(file.name, color='red')
+    output = rembg.remove_background(file.name, color='red')
     st.image(image)
   
   
