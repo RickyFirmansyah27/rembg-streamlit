@@ -14,9 +14,9 @@ def BGblue():
     plt.imshow(output)
     plt.show()
 
-def BGblue():
-    image = Image.open(file)
-    output = remove_background(image, color='red')
+def BGbred():
+    
+    output = remove_background(file, color='red')
     plt.imshow(output)
     plt.show()
   
